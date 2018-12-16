@@ -33,15 +33,23 @@ class Produk extends CI_Controller {
 	public function update($id)
 	{
 		$this->load->model('produk_model');	
-		$produk = $this->produk_model->get_one($id);	
-
+		$produk = $this->produk_model->get_one($id);
+		
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
 			$nama = $this->input->post('nama');
 			$harga = $this->input->post('harga');
 			$deskripsi = $this->input->post('deskripsi');
 			$stok = $this->input->post('stok');
+			$gambar_hidden = $this->input->post('gambar_hidden');
+			$gambar_upload = $this->upload_image('gambar');
 
-			$this->produk_model->update($id, $nama, $harga, $deskripsi, '', $stok);
+			if ($gambar_upload) {
+				$gambar = $gambar_upload;
+			} else {
+				$gambar = $gambar_hidden;
+			}
+
+			$this->produk_model->update($id, $nama, $harga, $deskripsi, $gambar, $stok);
 
 			redirect('admin/produk/index');
 		} else {
@@ -49,7 +57,7 @@ class Produk extends CI_Controller {
 				'nama' => $produk->nama,
 				'harga' => $produk->harga,
 				'deskripsi' => $produk->deskripsi,
-				'gambar' => "http://localhost/kursus/alteration_lv3/asset/Foto.jpg",
+				'gambar' => $produk->gambar,
 				'stok' => $produk->stok
 			];
 		}
@@ -62,6 +70,21 @@ class Produk extends CI_Controller {
 		$this->load->model('produk_model');	
 		$this->produk_model->delete($id);	
 		redirect('admin/produk/index');
+	}
+	private function upload_image($form_name)
+	{
+		$config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		
+
+		$this->load->library('upload', $config);
+
+		if ($this->upload->do_upload($form_name)) {
+			$file_name = $this->upload->data('file_name');
+			return $file_name;
+		}
+
+		return'';
 	}
 
 }

@@ -8,7 +8,7 @@
                 <!-- /.col-lg-12 -->
             </div>
                 <div class="row">                                
-                    <?php echo form_open(); ?>
+                    <?php echo form_open_multipart(); ?>
                         <div class="form-group">
                             <label>Nama</label>
                             <input class="form-control" name="nama">               
@@ -23,7 +23,7 @@
                         </div>
                         <div class="form-group">
                             <label>Gambar</label>
-                            <input type="file">
+                            <input type="file" name="gambar">
                         </div>
                         <div class="form-group">
                             <label>Stok</label>

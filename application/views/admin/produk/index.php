@@ -35,7 +35,7 @@
                                         <td><?php echo $value->nama; ?></td>
                                         <td><?php echo $value->harga; ?></td>
                                         <td><?php echo $value->deskripsi; ?></td>
-                                        <td></td>
+                                        <td><img src="<?php echo base_url('/uploads/'.$value->gambar); ?>" width=100px height=100px></td>
                                         <td><?php echo $value->stok; ?></td>
                                         <td><?php echo $value->tgl_upload; ?></td>
                                         <td>
