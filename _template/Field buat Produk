@@ -1,0 +1,8 @@
+Field buat Produk
+	ID -> PK, int, 11
+	Nama -> varchar, 50
+	Harga -> int, 6
+	Deskripsi -> text
+	Gambar -> varchar, 100
+	Stok -> int, 5
+	Tgl_upload -> timestamp, 

@@ -20,6 +20,18 @@ class profile extends CI_Controller {
 	 */
 	public function tes()
 	{
-		$this->load->view('CV');
+		$data = [
+			'nama' => "Muhammad",
+			'tempat' => "Bogor",
+			'tanggal' => "3 Februari 1990",
+			'jenis' => "Laki-laki",
+			'bangsa' => "Indonesia",
+			'alamat' => "Jalan Lolongok gang krupuk no 12 Empang, Bogor",
+			'HP' => "085659292276",
+			'email' => "ma_medh@yahoo.co.id"
+		];
+
+
+		$this->load->view('CV', $data);
 	}
 }
