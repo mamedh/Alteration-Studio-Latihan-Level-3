@@ -1,17 +1,5 @@
 <?php $this->load->view('admin/header'); ?>
-<?php 
-if ($this->input->server('REQUEST_METHOD') == 'POST') {
-		$nama = $this->input->post('nama');
-		$harga = $this->input->post('harga');
-		$deskripsi = $this->input->post('deskripsi');
-		$stok = $this->input->post('stok');	
-} else {
-	$nama = '';
-	$harga = '';
-	$deskripsi = '';
-	$stok = '';
-}
- ?>
+
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -20,18 +8,18 @@ if ($this->input->server('REQUEST_METHOD') == 'POST') {
                 <!-- /.col-lg-12 -->
             </div>
                 <div class="row">                                
-                    <form role="form" method="POST">
+                    <?php echo form_open(); ?>
                         <div class="form-group">
                             <label>Nama</label>
-                            <input class="form-control" name="nama" value="<?php echo $nama; ?>">               
+                            <input class="form-control" name="nama">               
                         </div>
                         <div class="form-group">
                             <label>Harga</label>
-                            <input class="form-control" name="harga" value="<?php echo $harga; ?>">
+                            <input class="form-control" name="harga">
                         </div>
                         <div class="form-group">
                             <label>Deskripsi</label>
-                            <textarea class="form-control" rows="3" name="deskripsi"><?php echo $deskripsi; ?></textarea>
+                            <textarea class="form-control" rows="3" name="deskripsi"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Gambar</label>
@@ -39,12 +27,12 @@ if ($this->input->server('REQUEST_METHOD') == 'POST') {
                         </div>
                         <div class="form-group">
                             <label>Stok</label>
-                            <input class="form-control" name="stok" value="<?php echo $stok; ?>">
+                            <input class="form-control" name="stok">
                         </div>
                         
                         <button type="submit" class="btn btn-default">Submit Button</button>
                         <button type="reset" class="btn btn-default">Reset Button</button>
-                    </form>
+                    <?php echo form_close(); ?>
                 </div>
         </div>
         <!-- /#page-wrapper -->

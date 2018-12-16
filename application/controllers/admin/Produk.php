@@ -5,26 +5,63 @@ class Produk extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->view('admin/produk/index');
+		$this->load->model('produk_model');		
+
+		$produk = $this->produk_model->get();
+		$data =[
+			'produk' => $produk
+		];
+
+		$this->load->view('admin/produk/index', $data);
 	}
 	public function add()
 	{
-			$this->load->view('admin/produk/add');		
+		$this->load->model('produk_model');	
+
+		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+			$nama = $this->input->post('nama');
+			$harga = $this->input->post('harga');
+			$deskripsi = $this->input->post('deskripsi');
+			$stok = $this->input->post('stok');	
+
+			$this->produk_model->add($nama, $harga, $deskripsi, '', $stok);
+			redirect('admin/produk/index');
+		}
+
+		$this->load->view('admin/produk/add');		
 	}
-	public function update()
+	public function update($id)
 	{
-		$data = [
-			'nama' => "Makanan",
-			'harga' => "10000",
-			'deskripsi' => "Makanan murah meriah",
-			'gambar' => "http://localhost/kursus/alteration_lv3/asset/Foto.jpg",
-			'stok' => "1"
-		];
+		$this->load->model('produk_model');	
+		$produk = $this->produk_model->get_one($id);	
+
+		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+			$nama = $this->input->post('nama');
+			$harga = $this->input->post('harga');
+			$deskripsi = $this->input->post('deskripsi');
+			$stok = $this->input->post('stok');
+
+			$this->produk_model->update($id, $nama, $harga, $deskripsi, '', $stok);
+
+			redirect('admin/produk/index');
+		} else {
+			$data = [
+				'nama' => $produk->nama,
+				'harga' => $produk->harga,
+				'deskripsi' => $produk->deskripsi,
+				'gambar' => "http://localhost/kursus/alteration_lv3/asset/Foto.jpg",
+				'stok' => $produk->stok
+			];
+		}
+
 		$this->load->view('admin/produk/update', $data);
+
 	}
-	public function delete()
+	public function delete($id)
 	{
-		
+		$this->load->model('produk_model');	
+		$this->produk_model->delete($id);	
+		redirect('admin/produk/index');
 	}
 
 }

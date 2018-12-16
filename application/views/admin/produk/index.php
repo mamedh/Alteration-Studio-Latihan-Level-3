@@ -10,6 +10,7 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
+                    <a class="btn btn-info" href="<?php echo base_url('/index.php/admin/produk/add/'); ?>">Add</a>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Data Produk
@@ -25,18 +26,24 @@
                                         <th>Gambar</th>
                                         <th>Stok</th>
                                         <th>Tanggal Upload</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach ($produk as $key => $value): ?>
                                     <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center">X</td>
+                                        <td><?php echo $value->nama; ?></td>
+                                        <td><?php echo $value->harga; ?></td>
+                                        <td><?php echo $value->deskripsi; ?></td>
+                                        <td></td>
+                                        <td><?php echo $value->stok; ?></td>
+                                        <td><?php echo $value->tgl_upload; ?></td>
+                                        <td>
+                                            <a class="btn btn-info" href="<?php echo base_url('/index.php/admin/produk/update/'.$value->id); ?>">Update</a>
+                                            <a class="btn btn-danger" href="<?php echo base_url('/index.php/admin/produk/delete/'.$value->id); ?>">Delete</a>
+                                        </td>
                                     </tr>
-                                    
+                                    <?php endforeach; ?>                                    
                                 </tbody>
                             </table>
                             <!-- /.table-responsive -->
