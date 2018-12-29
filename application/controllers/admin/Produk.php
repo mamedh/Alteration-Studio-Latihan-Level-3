@@ -22,9 +22,10 @@ class Produk extends CI_Controller {
 			$nama = $this->input->post('nama');
 			$harga = $this->input->post('harga');
 			$deskripsi = $this->input->post('deskripsi');
+			$gambar = $this->upload_image('gambar');
 			$stok = $this->input->post('stok');	
 
-			$this->produk_model->add($nama, $harga, $deskripsi, '', $stok);
+			$this->produk_model->add($nama, $harga, $deskripsi, $gambar, $stok);
 			redirect('admin/produk/index');
 		}
 

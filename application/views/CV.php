@@ -208,7 +208,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</tr>
 		<tr>
 			<td>Coding Komputer</td>
-			<td>HTML dan CSS</td>
+			<td>HTML, CSS, Javascript, Bootstrap, dan PHP</td>
 		</tr>
 		<tr>
 			<td>Desain dan Simulasi Antena</td>
