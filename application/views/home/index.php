@@ -26,7 +26,6 @@
               <?php endforeach; ?>
             </ol>
             <div class="carousel-inner" role="listbox">
-
               <?php foreach ($produk as $key => $value): ?>
               <div class="carousel-item <?php echo ($key==0)? ' active' : ''; ?> ">
                 <img class="d-block img-fluid" src="<?php echo base_url('/uploads/'.$value->gambar); ?>" alt="<?php echo $value->nama; ?>">
