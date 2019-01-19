@@ -16,6 +16,8 @@
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url('asset/bootstrap-home/css/shop-homepage.css'); ?>" rel="stylesheet">
 
+    <link href="<?php echo base_url('asset/vendor/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
+
   </head>
 
   <body>
@@ -38,11 +40,24 @@
               <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+              <a class="nav-link" href="<?php echo base_url('index.php/home_login'); ?>">Login</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+
+              <?php if ($username): ?>
+            <li class="nav-item dropdown">
+
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo $username; ?>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <?php  ?>
+                <a class="dropdown-item" href="<?php echo base_url('index.php/home_login/logout'); ?>">Logout</a>
+              </div>
             </li>
+          <?php endif; ?>
           </ul>
         </div>
       </div>

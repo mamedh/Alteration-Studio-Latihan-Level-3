@@ -10,15 +10,18 @@
                     <?php echo form_open_multipart(); ?>
                         <div class="form-group">
                             <label>Nama</label>
-                            <input class="form-control" name="nama" value="<?php echo $nama; ?>">               
+                            <input class="form-control" name="nama" value="<?php echo $nama; ?>">
+                            <?php echo form_error('nama', '<p class="help-block">', '</p>'); ?>               
                         </div>
                         <div class="form-group">
                             <label>Harga</label>
                             <input class="form-control" name="harga" value="<?php echo $harga; ?>">
+                            <?php echo form_error('harga', '<p class="help-block">', '</p>'); ?>
                         </div>
                         <div class="form-group">
                             <label>Deskripsi</label>
                             <textarea class="form-control" rows="3" name="deskripsi"><?php echo $deskripsi; ?></textarea>
+                            <?php echo form_error('deskripsi', '<p class="help-block">', '</p>'); ?>
                         </div>
                         <div class="form-group">
                             <label>Gambar</label>
@@ -32,6 +35,7 @@
                         <div class="form-group">
                             <label>Stok</label>
                             <input class="form-control" name="stok" value="<?php echo $stok; ?>">
+                            <?php echo form_error('stok', '<p class="help-block">', '</p>'); ?>
                         </div>
                         
                         <button type="submit" class="btn btn-default">Submit Button</button>

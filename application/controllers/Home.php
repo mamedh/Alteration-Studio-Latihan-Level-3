@@ -6,10 +6,6 @@ class Home extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		
-		if (empty($this->session->userdata('username'))) {
-			redirect('home_login');
-		}
 	}
 
 	public function index()
@@ -20,6 +16,7 @@ class Home extends CI_Controller {
 		$produk = $this->produk_model->get();
 		$kategori = $this->kategori_model->get();
 		$data =[
+			'username' => $this->session->userdata('username'),
 			'produk' => $produk,
 			'kategori' => $kategori
 		];

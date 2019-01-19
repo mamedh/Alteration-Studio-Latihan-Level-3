@@ -11,11 +11,13 @@
                     <?php echo form_open_multipart(); ?>
                         <div class="form-group">
                             <label>Nama</label>
-                            <input class="form-control" name="nama">               
+                            <input class="form-control" name="nama">
+                            <?php echo form_error('nama', '<p class="help-block">', '</p>'); ?>
                         </div>
                         <div class="form-group">
                             <label>Slug</label>
                             <input class="form-control" name="slug">
+                            <?php echo form_error('slug', '<p class="help-block">', '</p>'); ?>
                         </div>
                         
                         <div class="form-group">

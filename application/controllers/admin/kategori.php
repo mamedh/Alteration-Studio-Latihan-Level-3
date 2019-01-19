@@ -28,7 +28,14 @@ class kategori extends CI_Controller {
 	{
 		$this->load->model('kategori_model');	
 
-		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('nama', 'Nama', 'required',
+			array('required' => 'Kolom {field} harus diisi'));		
+		$this->form_validation->set_rules('slug', 'Slug', 'required',
+			array(
+				'required' => 'Kolom {field} harus diisi'));
+
+		if ($this->form_validation->run() == TRUE) {
 			$nama = $this->input->post('nama');
 			$slug = $this->input->post('slug');
 			$cover = $this->upload_image('cover');			
@@ -43,8 +50,15 @@ class kategori extends CI_Controller {
 	{
 		$this->load->model('kategori_model');	
 		$kategori = $this->kategori_model->get_one($id);
-		
-		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('nama', 'Nama', 'required',
+			array('required' => 'Kolom {field} harus diisi'));		
+		$this->form_validation->set_rules('slug', 'Slug', 'required',
+			array(
+				'required' => 'Kolom {field} harus diisi'));
+
+		if ($this->form_validation->run() == TRUE) {
 			$nama = $this->input->post('nama');
 			$slug = $this->input->post('slug');
 			

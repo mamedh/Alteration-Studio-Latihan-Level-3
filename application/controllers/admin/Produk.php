@@ -27,7 +27,23 @@ class Produk extends CI_Controller {
 	{
 		$this->load->model('produk_model');	
 
-		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('nama', 'Nama', 'required',
+			array('required' => 'Kolom {field} harus diisi'));
+		$this->form_validation->set_rules('harga', 'Harga', 'required|numeric',
+			array(
+				'required' => 'Kolom {field} harus diisi',
+				'numeric' => '{field} harus berisikan angka'
+			));	
+		$this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required',
+			array('required' => 'Kolom {field} harus diisi'));
+		$this->form_validation->set_rules('stok', 'Stok', 'required|is_natural',
+			array(
+				'required' => 'Kolom {field} harus diisi',
+				'is_natural' => '{field} harus berisikan angka mulai dari 0'
+			));
+
+		if ($this->form_validation->run() == TRUE) {
 			$nama = $this->input->post('nama');
 			$harga = $this->input->post('harga');
 			$deskripsi = $this->input->post('deskripsi');
@@ -45,7 +61,23 @@ class Produk extends CI_Controller {
 		$this->load->model('produk_model');	
 		$produk = $this->produk_model->get_one($id);
 		
-		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('nama', 'Nama', 'required',
+			array('required' => 'Kolom {field} harus diisi'));
+		$this->form_validation->set_rules('harga', 'Harga', 'required|numeric',
+			array(
+				'required' => 'Kolom {field} harus diisi',
+				'numeric' => '{field} harus berisikan angka'
+			));	
+		$this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required',
+			array('required' => 'Kolom {field} harus diisi'));
+		$this->form_validation->set_rules('stok', 'Stok', 'required|is_natural',
+			array(
+				'required' => 'Kolom {field} harus diisi',
+				'is_natural' => '{field} harus berisikan angka mulai dari 0'
+			));
+
+		if ($this->form_validation->run() == TRUE) {
 			$nama = $this->input->post('nama');
 			$harga = $this->input->post('harga');
 			$deskripsi = $this->input->post('deskripsi');

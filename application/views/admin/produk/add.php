@@ -12,14 +12,17 @@
                         <div class="form-group">
                             <label>Nama</label>
                             <input class="form-control" name="nama">               
+                            <?php echo form_error('nama', '<p class="help-block">', '</p>'); ?>
                         </div>
                         <div class="form-group">
                             <label>Harga</label>
                             <input class="form-control" name="harga">
+                            <?php echo form_error('harga', '<p class="help-block">', '</p>'); ?>
                         </div>
                         <div class="form-group">
                             <label>Deskripsi</label>
                             <textarea class="form-control" rows="3" name="deskripsi"></textarea>
+                            <?php echo form_error('deskripsi', '<p class="help-block">', '</p>'); ?>
                         </div>
                         <div class="form-group">
                             <label>Gambar</label>
@@ -28,6 +31,7 @@
                         <div class="form-group">
                             <label>Stok</label>
                             <input class="form-control" name="stok">
+                            <?php echo form_error('stok', '<p class="help-block">', '</p>'); ?>
                         </div>
                         
                         <button type="submit" class="btn btn-default">Submit Button</button>
