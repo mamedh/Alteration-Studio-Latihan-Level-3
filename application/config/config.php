@@ -23,8 +23,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
+if (getenv("IS_PRODUCTION")) {
+$config['base_url'] = 'https://alteration-muhammad.herokuapp.com';
+}else
+{
 $config['base_url'] = 'http://localhost/kursus/alteration_lv3';
-
+}
 /*
 |--------------------------------------------------------------------------
 | Index File
