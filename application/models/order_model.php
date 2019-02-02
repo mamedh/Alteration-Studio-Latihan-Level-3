@@ -2,7 +2,7 @@
 /**
  * 
  */
-class order_model extends CI_Model
+class Order_model extends CI_Model
 {
 	public $id_order;
 	public $id_produk;

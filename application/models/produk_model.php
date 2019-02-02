@@ -2,7 +2,7 @@
 /**
  * 
  */
-class produk_model extends CI_Model
+class Produk_model extends CI_Model
 {
 	public $id;
 	public $nama;

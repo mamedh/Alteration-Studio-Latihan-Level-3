@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class home_login_model extends CI_Model {
+class Home_login_model extends CI_Model {
 	public $username;
 	public $password;
 
