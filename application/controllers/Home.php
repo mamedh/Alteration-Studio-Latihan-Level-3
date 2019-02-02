@@ -23,4 +23,19 @@ class Home extends CI_Controller {
 
 		$this->load->view('home/index', $data);
 	}
+	
+	public function beli($id)
+	{
+		$this->load->model('order_model');	
+		
+			$id_produk = $id;
+			$username = $this->session->userdata('username');
+
+
+			$this->order_model->beli($id_produk, $username);
+			redirect('home/index');
+		
+
+				
+	}
 }

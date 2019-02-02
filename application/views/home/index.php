@@ -44,25 +44,27 @@
           </div>
 
           <div class="row">
+            
 <?php foreach ($produk as $key => $value): ?>
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="<?php echo base_url('/uploads/'.$value->gambar); ?>" width=150px height=150px alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
+                <div class="card-body">                  
+                  <h4 class="card-title">                    
                     <a href="#"><?php echo $value->nama; ?></a>
                   </h4>
                   <h5>Rp <?php echo $value->harga; ?></h5>
-                  <p class="card-text"><?php echo $value->deskripsi; ?></p>
+                  <p class="card-text"><?php echo $value->deskripsi; ?></p>                  
                 </div>
                 <div class="card-footer">
                   <button type="button" class="btn btn-sm btn-primary">Lihat</button>
-                  <button type="button" class="btn btn-sm btn-secondary">Tambah ke Keranjang</button>
+                  <a class="btn btn-sm btn-secondary" href="<?php echo base_url('/index.php/Home/beli/'.$value->id); ?>">Beli</a>
+                  
                 </div>
               </div>
             </div>
 <?php endforeach; ?>
-
+          
           </div>
           <!-- /.row -->
 

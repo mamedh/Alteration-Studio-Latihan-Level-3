@@ -10,7 +10,6 @@ class kategori extends CI_Controller {
 		if (empty($this->session->userdata('username'))) {
 			redirect('admin/login');
 		}
-		
 	}
 	
 	public function index()
